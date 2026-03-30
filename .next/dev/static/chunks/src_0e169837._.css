@@ -1,0 +1,491 @@
+/* [project]/src/components/ImageBanner/ImageBanner.css [app-client] (css) */
+.image-banner {
+  width: 100%;
+  height: 100svh;
+  position: relative;
+  overflow: hidden;
+}
+
+.image-banner-bg {
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.image-banner .container {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+
+.image-banner .container [data-copy-wrapper] {
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  display: flex;
+}
+
+.image-banner .container .image-banner-footer {
+  text-align: center;
+  width: 35%;
+  position: absolute;
+  bottom: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.image-banner .container .image-banner-footer p {
+  width: 100%;
+  color: var(--base-100);
+}
+
+.image-banner-footer p .line-mask {
+  width: 100%;
+}
+
+@media (max-width: 1000px) {
+  .image-banner .container .image-banner-footer {
+    width: 80%;
+  }
+}
+
+/* [project]/src/components/Marquee/Marquee.css [app-client] (css) */
+.marquee {
+  background-color: var(--base-500);
+  width: 100%;
+  height: 100svh;
+}
+
+.marquee .container {
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  display: flex;
+}
+
+.marquee-content {
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+}
+
+.marquee-content h1, .marquee-content h3 {
+  color: var(--base-100);
+}
+
+.marquee-pill {
+  border: 2px solid #c0472b;
+  border-radius: 999px;
+  width: 100%;
+  max-width: 720px;
+  padding: .75rem 0;
+  overflow: hidden;
+}
+
+.marquee-track {
+  will-change: transform;
+  width: max-content;
+  display: flex;
+}
+
+.marquee-item {
+  font-family: var(--font-host-grotesk), sans-serif;
+  text-transform: uppercase;
+  color: #c0472b;
+  flex-shrink: 0;
+  padding: 0 1.5rem;
+  font-size: clamp(2rem, 5vw, 5rem);
+  font-weight: 800;
+  line-height: 1;
+}
+
+/* [project]/src/components/StickyCards/StickyCards.css [app-client] (css) */
+@keyframes sticky-card-pulse {
+  0%, 100% {
+    box-shadow: 0 0 #e0ded11f, 0 .5rem 1.5rem #0000001f;
+  }
+
+  50% {
+    box-shadow: 0 0 1.25rem .15rem #e0ded12e, 0 .75rem 2rem #00000024;
+  }
+}
+
+.sticky-cards {
+  background-color: var(--base-500);
+  width: 100%;
+  position: relative;
+}
+
+.sticky-card {
+  text-align: center;
+  will-change: transform;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  width: 50%;
+  height: 100svh;
+  padding: 2rem;
+  display: flex;
+  position: sticky;
+  top: 0;
+}
+
+.sticky-card:nth-child(odd) {
+  margin-left: auto;
+}
+
+.sticky-card:nth-child(3n+1) {
+  background-color: var(--base-300);
+}
+
+.sticky-card:nth-child(3n+2) {
+  background-color: var(--base-400);
+}
+
+.sticky-card:nth-child(3n+3) {
+  background-color: var(--base-500);
+}
+
+.sticky-card-img {
+  aspect-ratio: 4 / 5;
+  border-radius: .35rem;
+  width: 30%;
+  margin-bottom: 1.5rem;
+  animation: 4.5s ease-in-out infinite sticky-card-pulse;
+  overflow: hidden;
+}
+
+.sticky-card:first-child .sticky-card-img {
+  animation-delay: 0s;
+}
+
+.sticky-card:nth-child(2) .sticky-card-img {
+  animation-delay: .6s;
+}
+
+.sticky-card:nth-child(3) .sticky-card-img {
+  animation-delay: 1.2s;
+}
+
+.sticky-card:nth-child(4) .sticky-card-img {
+  animation-delay: 1.8s;
+}
+
+.sticky-card:nth-child(5) .sticky-card-img {
+  animation-delay: 2.4s;
+}
+
+.sticky-card:nth-child(6) .sticky-card-img {
+  animation-delay: 3s;
+}
+
+.sticky-card h3 {
+  color: var(--base-100);
+}
+
+.sticky-card p {
+  max-width: 400px;
+}
+
+.sticky-cards-mobile .sticky-card {
+  width: 100%;
+  height: auto;
+  min-height: 100svh;
+  position: relative;
+}
+
+.sticky-cards-mobile .sticky-card:nth-child(odd) {
+  margin-left: 0;
+}
+
+/* [project]/src/components/Chefs/Chefs.css [app-client] (css) */
+.chefs {
+  background-color: var(--base-600);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+  height: 100svh;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.chefs-avatars {
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+  height: 100px;
+  display: flex;
+}
+
+.chefs-avatar {
+  cursor: pointer;
+  filter: saturate(0);
+  will-change: width, height;
+  width: 70px;
+  height: 70px;
+  padding: 5px;
+  position: relative;
+}
+
+.chefs-avatar img {
+  border-radius: .35rem;
+}
+
+.chefs-names {
+  width: 100%;
+  height: clamp(4rem, 11vw, 18rem);
+  position: relative;
+  overflow: hidden;
+}
+
+.chefs-name {
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.chefs-name h1 {
+  white-space: nowrap;
+  text-align: center;
+  color: var(--base-100);
+  line-height: .9;
+}
+
+.chefs-name h1 .letter {
+  will-change: transform;
+  display: inline-block;
+  transform: translateY(110%);
+}
+
+.chefs-name--default h1 .letter {
+  transform: translateY(0%);
+}
+
+.chefs .section-footer p {
+  color: var(--base-300);
+}
+
+@media (max-width: 999px) {
+  .chefs {
+    flex-direction: column-reverse;
+    gap: 2rem;
+  }
+
+  .chefs-avatars {
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 90%;
+    height: auto;
+  }
+
+  .chefs-avatar {
+    cursor: default;
+    width: 60px;
+    height: 60px;
+    padding: 2.5px;
+  }
+
+  .chefs-names {
+    height: 4rem;
+  }
+
+  .chefs-name {
+    display: none;
+  }
+
+  .chefs-name--default {
+    display: flex;
+  }
+
+  .chefs-name--default h1 .letter {
+    transform: translateY(0%) !important;
+  }
+
+  .chefs-name h1 {
+    font-size: 3rem;
+  }
+}
+
+/* [project]/src/components/CTA/CTA.css [app-client] (css) */
+.cta {
+  background-color: var(--base-500);
+  width: 100%;
+  height: 100svh;
+  position: relative;
+}
+
+.cta .container {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.cta-content {
+  text-align: center;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  padding: 6rem 4rem;
+  display: flex;
+}
+
+.cta-content h6 {
+  font-size: clamp(1.25rem, 1.5vw, 3rem);
+}
+
+.cta-content h5 {
+  max-width: 580px;
+}
+
+.cta-details {
+  gap: 6rem;
+  display: flex;
+}
+
+.cta-circle-button {
+  aspect-ratio: 1;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  margin-top: 1rem;
+  display: flex;
+}
+
+.cta-button {
+  border-radius: 50%;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  display: flex;
+  position: relative;
+}
+
+.cta-button-svg {
+  width: 100%;
+  height: 100%;
+  color: var(--base-400);
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cta-button span {
+  font-family: var(--font-host-grotesk), sans-serif;
+  color: var(--base-100);
+  font-size: 1.25rem;
+}
+
+.cta-image {
+  border-radius: .35rem;
+  width: 45%;
+  height: 100%;
+  max-height: 900px;
+  overflow: hidden;
+}
+
+@media (max-width: 1000px) {
+  .cta {
+    height: 100%;
+  }
+
+  .cta .container {
+    flex-direction: column;
+  }
+
+  .cta-content h5 {
+    max-width: 100%;
+  }
+
+  .cta-image {
+    width: 100%;
+  }
+}
+
+/* [project]/src/app/about/about.css [app-client] (css) */
+.about-hero {
+  background-color: var(--base-500);
+  width: 100%;
+  height: 250vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-hero-pin {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  height: 100vh;
+  padding: 2.5rem;
+  display: flex;
+  position: sticky;
+  top: 0;
+}
+
+.hero-heading {
+  z-index: 2;
+  text-align: center;
+}
+
+.hero-heading h1 {
+  will-change: transform;
+  font-size: clamp(4rem, 10vw, 20rem);
+}
+
+.hero-image {
+  aspect-ratio: 16 / 9;
+  transform-origin: center;
+  will-change: transform, opacity;
+  border-radius: .35rem;
+  width: 100%;
+  max-width: 600px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-image img {
+  transform-origin: center;
+  will-change: transform;
+}
+
+.about-info {
+  background-color: var(--base-500);
+  padding: 2rem 0 8rem;
+}
+
+.about-info .container {
+  flex-direction: column;
+  display: flex;
+}
+
+.about-info .container p, .about-info .container h3 {
+  margin-bottom: 2rem;
+}
+
+/*# sourceMappingURL=src_0e169837._.css.map*/

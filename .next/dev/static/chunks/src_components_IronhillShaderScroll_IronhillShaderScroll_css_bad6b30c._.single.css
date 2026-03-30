@@ -1,0 +1,209 @@
+/* [project]/src/components/IronhillShaderScroll/IronhillShaderScroll.css [app-client] (css) */
+.ironhill-scroll {
+  width: 100%;
+  height: 175svh;
+  color: var(--base-200);
+  position: relative;
+  overflow: hidden;
+}
+
+.ironhill-scroll__img {
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+
+.ironhill-scroll__header {
+  z-index: 1;
+  text-align: center;
+  pointer-events: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+  width: 100%;
+  height: 100svh;
+  display: flex;
+  position: absolute;
+}
+
+.ironhill-scroll__header h2 {
+  color: var(--base-200);
+  font-size: clamp(2.5rem, 6vw, 6rem);
+}
+
+.ironhill-scroll__header p {
+  width: min(75%, 42rem);
+  color: var(--base-100);
+  text-transform: none;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.45;
+  font-family: var(--font-host-grotesk), sans-serif;
+}
+
+.ironhill-scroll__canvas {
+  z-index: 2;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.ironhill-scroll__content {
+  z-index: 3;
+  text-align: left;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+  min-height: 125svh;
+  padding: clamp(2rem, 5vw, 4rem) clamp(2rem, 5vw, 4rem) clamp(2.5rem, 6vw, 5rem);
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.ironhill-scroll__stack {
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(2.5rem, 5vw, 4rem);
+  width: 100%;
+  max-width: 2000px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.ironhill-scroll__copy {
+  flex-direction: column;
+  gap: 1.75rem;
+  width: min(100%, 40rem);
+  margin: 0 auto;
+  display: flex;
+}
+
+.ironhill-scroll__carousel-wrap {
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, #0000 0%, #000 8% 92%, #0000 100%);
+  mask-image: linear-gradient(90deg, #0000 0%, #000 8% 92%, #0000 100%);
+}
+
+.ironhill-scroll__carousel-track {
+  will-change: transform;
+  flex-flow: row;
+  gap: 1rem;
+  width: max-content;
+  animation: 55s linear infinite ironhill-work-marquee;
+  display: flex;
+}
+
+.ironhill-scroll__carousel-wrap:hover .ironhill-scroll__carousel-track {
+  animation-play-state: paused;
+}
+
+.ironhill-scroll__carousel-item {
+  background-color: var(--base-600);
+  border-radius: .35rem;
+  flex: none;
+  width: min(22rem, 72vw);
+  height: min(18rem, 52vw);
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.ironhill-scroll__carousel-item img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes ironhill-work-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ironhill-scroll__carousel-track {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 48rem;
+    margin: 0 auto;
+    animation: none;
+    transform: translateX(0);
+  }
+
+  .ironhill-scroll__carousel-item {
+    width: min(10rem, 42vw);
+    height: min(8rem, 36vw);
+  }
+}
+
+.ironhill-scroll__eyebrow {
+  letter-spacing: .35em;
+  color: var(--base-200);
+  text-transform: uppercase;
+  margin: 0;
+  font-size: .7rem;
+  font-weight: 500;
+}
+
+.ironhill-scroll__body {
+  font-family: var(--font-host-grotesk), sans-serif;
+  color: var(--base-200);
+  text-transform: none;
+  margin: 0;
+  font-size: clamp(.98rem, 1.35vw, 1.08rem);
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+.ironhill-scroll__body--closing {
+  color: var(--base-100);
+  opacity: .92;
+}
+
+.ironhill-scroll__quote {
+  border-left: 2px solid var(--base-300);
+  font-family: var(--font-host-grotesk), sans-serif;
+  color: var(--base-100);
+  text-transform: none;
+  margin: .5rem 0;
+  padding: 1.25rem 0 1.25rem 1.35rem;
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+  font-style: italic;
+  font-weight: 450;
+  line-height: 1.55;
+}
+
+@media (max-width: 1000px) {
+  .ironhill-scroll__header p {
+    width: calc(100% - 2rem);
+  }
+
+  .ironhill-scroll__content {
+    align-items: stretch;
+    padding-top: 4rem;
+  }
+
+  .ironhill-scroll__carousel-item {
+    width: min(16rem, 78vw);
+    height: min(13rem, 56vw);
+  }
+}
+
+/*# sourceMappingURL=src_components_IronhillShaderScroll_IronhillShaderScroll_css_bad6b30c._.single.css.map*/

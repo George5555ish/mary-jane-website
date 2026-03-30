@@ -1,0 +1,106 @@
+/* [project]/src/components/Footer/Footer.css [app-client] (css) */
+.footer {
+  background-color: var(--base-600);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100svh;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-content {
+  pointer-events: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+.footer-heading {
+  z-index: 1;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  gap: .25rem;
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+.footer-heading h2 {
+  width: 75%;
+  max-width: 1500px;
+  color: var(--base-100);
+}
+
+.footer-button-container {
+  z-index: 3;
+  pointer-events: all;
+  position: relative;
+}
+
+.footer-postcards {
+  z-index: 2;
+  pointer-events: none;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: absolute;
+  inset: 0;
+}
+
+.footer-postcard {
+  aspect-ratio: 5 / 7;
+  will-change: transform;
+  border-radius: .35rem;
+  width: clamp(360px, 40vw, 620px);
+  position: absolute;
+  overflow: hidden;
+}
+
+.footer-bar {
+  z-index: 4;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 2000px;
+  padding: 2.5rem;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.footer-bar-left {
+  align-items: center;
+  display: flex;
+}
+
+.footer-bar p {
+  font-family: var(--font-host-grotesk), sans-serif;
+  color: var(--base-300);
+  text-decoration: none;
+  transition: color .3s;
+}
+
+.footer-bar a:hover {
+  color: var(--base-500);
+}
+
+@media (max-width: 999px) {
+  .footer-postcards {
+    display: none;
+  }
+
+  .footer-bar {
+    padding: 1.5rem;
+  }
+}
+
+/*# sourceMappingURL=src_components_Footer_Footer_css_bad6b30c._.single.css.map*/

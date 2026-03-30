@@ -1,0 +1,53 @@
+/* [project]/src/components/Marquee/Marquee.css [app-client] (css) */
+.marquee {
+  background-color: var(--base-500);
+  width: 100%;
+  height: 100svh;
+}
+
+.marquee .container {
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  display: flex;
+}
+
+.marquee-content {
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+}
+
+.marquee-content h1, .marquee-content h3 {
+  color: var(--base-100);
+}
+
+.marquee-pill {
+  border: 2px solid #c0472b;
+  border-radius: 999px;
+  width: 100%;
+  max-width: 720px;
+  padding: .75rem 0;
+  overflow: hidden;
+}
+
+.marquee-track {
+  will-change: transform;
+  width: max-content;
+  display: flex;
+}
+
+.marquee-item {
+  font-family: var(--font-host-grotesk), sans-serif;
+  text-transform: uppercase;
+  color: #c0472b;
+  flex-shrink: 0;
+  padding: 0 1.5rem;
+  font-size: clamp(2rem, 5vw, 5rem);
+  font-weight: 800;
+  line-height: 1;
+}
+
+/*# sourceMappingURL=src_components_Marquee_Marquee_css_bad6b30c._.single.css.map*/

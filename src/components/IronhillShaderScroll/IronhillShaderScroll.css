@@ -1,0 +1,213 @@
+.ironhill-scroll {
+  position: relative;
+  width: 100%;
+  height: 175svh;
+  overflow: hidden;
+  color: var(--base-200);
+}
+
+.ironhill-scroll__img {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ironhill-scroll__header {
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  width: 100%;
+  height: 100svh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+  pointer-events: none;
+}
+
+.ironhill-scroll__header h2 {
+  font-size: clamp(2.5rem, 6vw, 6rem);
+  color: var(--base-200);
+}
+
+.ironhill-scroll__header p {
+  width: min(75%, 42rem);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--base-100);
+  text-transform: none;
+  font-family: var(--font-host-grotesk), sans-serif;
+}
+
+.ironhill-scroll__canvas {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.ironhill-scroll__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  display: flex;
+  width: 100%;
+  min-height: 125svh;
+  justify-content: center;
+  align-items: stretch;
+  padding: clamp(2rem, 5vw, 4rem);
+  padding-bottom: clamp(2.5rem, 6vw, 5rem);
+  text-align: left;
+}
+
+.ironhill-scroll__stack {
+  display: flex;
+  width: 100%;
+  max-width: 2000px;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(2.5rem, 5vw, 4rem);
+}
+
+.ironhill-scroll__copy {
+  width: min(100%, 40rem);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.ironhill-scroll__carousel-wrap {
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  overflow: hidden;
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+}
+
+.ironhill-scroll__carousel-track {
+  display: flex;
+  width: max-content;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  will-change: transform;
+  animation: ironhill-work-marquee 55s linear infinite;
+}
+
+.ironhill-scroll__carousel-wrap:hover .ironhill-scroll__carousel-track {
+  animation-play-state: paused;
+}
+
+.ironhill-scroll__carousel-item {
+  position: relative;
+  flex: 0 0 auto;
+  width: min(22rem, 72vw);
+  height: min(18rem, 52vw);
+  margin: 0;
+  overflow: hidden;
+  border-radius: 0.35rem;
+  background-color: var(--base-600);
+}
+
+.ironhill-scroll__carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes ironhill-work-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ironhill-scroll__carousel-track {
+    animation: none;
+    transform: translateX(0);
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 48rem;
+    margin: 0 auto;
+  }
+
+  .ironhill-scroll__carousel-item {
+    width: min(10rem, 42vw);
+    height: min(8rem, 36vw);
+  }
+}
+
+.ironhill-scroll__eyebrow {
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  color: var(--base-200);
+  text-transform: uppercase;
+}
+
+.ironhill-scroll__body {
+  margin: 0;
+  font-family: var(--font-host-grotesk), sans-serif;
+  font-size: clamp(0.98rem, 1.35vw, 1.08rem);
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--base-200);
+  text-transform: none;
+}
+
+.ironhill-scroll__body--closing {
+  color: var(--base-100);
+  opacity: 0.92;
+}
+
+.ironhill-scroll__quote {
+  margin: 0.5rem 0;
+  padding: 1.25rem 0 1.25rem 1.35rem;
+  border-left: 2px solid var(--base-300);
+  font-family: var(--font-host-grotesk), sans-serif;
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+  font-style: italic;
+  font-weight: 450;
+  line-height: 1.55;
+  color: var(--base-100);
+  text-transform: none;
+}
+
+@media (max-width: 1000px) {
+  .ironhill-scroll__header p {
+    width: calc(100% - 2rem);
+  }
+
+  .ironhill-scroll__content {
+    align-items: stretch;
+    padding-top: 4rem;
+  }
+
+  .ironhill-scroll__carousel-item {
+    width: min(16rem, 78vw);
+    height: min(13rem, 56vw);
+  }
+}

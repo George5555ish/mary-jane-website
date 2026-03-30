@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/src/app/about/about.css"],"sourcesContent":[".about-hero {\n  position: relative;\n  width: 100%;\n  height: 250vh;\n  overflow: hidden;\n  background-color: var(--base-500);\n}\n\n.about-hero-pin {\n  position: sticky;\n  top: 0;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  gap: 1rem;\n  width: 100%;\n  height: 100vh;\n  padding: 2.5rem;\n}\n\n.hero-heading {\n  z-index: 2;\n  text-align: center;\n}\n\n.hero-heading h1 {\n  font-size: clamp(4rem, 10vw, 20rem);\n  will-change: transform;\n}\n\n.hero-image {\n  position: relative;\n  width: 100%;\n  max-width: 600px;\n  overflow: hidden;\n  border-radius: 0.35rem;\n  aspect-ratio: 16 / 9;\n  transform-origin: center;\n  will-change: transform, opacity;\n}\n\n.hero-image img {\n  transform-origin: center;\n  will-change: transform;\n}\n\n.about-info {\n  padding: 2rem 0 8rem 0;\n  background-color: var(--base-500);\n}\n\n.about-info .container {\n  display: flex;\n  flex-direction: column;\n}\n\n.about-info .container p,\n.about-info .container h3 {\n  margin-bottom: 2rem;\n}\n"],"names":[],"mappings":"AAAA;;;;;;;;AAQA;;;;;;;;;;;;;AAaA;;;;;AAKA;;;;;AAKA;;;;;;;;;;;AAWA;;;;;AAKA;;;;;AAKA;;;;;AAKA"}}]
+}

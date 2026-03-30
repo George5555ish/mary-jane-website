@@ -1,0 +1,118 @@
+/* [project]/src/components/Chefs/Chefs.css [app-client] (css) */
+.chefs {
+  background-color: var(--base-600);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+  height: 100svh;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.chefs-avatars {
+  justify-content: center;
+  align-items: center;
+  width: max-content;
+  height: 100px;
+  display: flex;
+}
+
+.chefs-avatar {
+  cursor: pointer;
+  filter: saturate(0);
+  will-change: width, height;
+  width: 70px;
+  height: 70px;
+  padding: 5px;
+  position: relative;
+}
+
+.chefs-avatar img {
+  border-radius: .35rem;
+}
+
+.chefs-names {
+  width: 100%;
+  height: clamp(4rem, 11vw, 18rem);
+  position: relative;
+  overflow: hidden;
+}
+
+.chefs-name {
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.chefs-name h1 {
+  white-space: nowrap;
+  text-align: center;
+  color: var(--base-100);
+  line-height: .9;
+}
+
+.chefs-name h1 .letter {
+  will-change: transform;
+  display: inline-block;
+  transform: translateY(110%);
+}
+
+.chefs-name--default h1 .letter {
+  transform: translateY(0%);
+}
+
+.chefs .section-footer p {
+  color: var(--base-300);
+}
+
+@media (max-width: 999px) {
+  .chefs {
+    flex-direction: column-reverse;
+    gap: 2rem;
+  }
+
+  .chefs-avatars {
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 90%;
+    height: auto;
+  }
+
+  .chefs-avatar {
+    cursor: default;
+    width: 60px;
+    height: 60px;
+    padding: 2.5px;
+  }
+
+  .chefs-names {
+    height: 4rem;
+  }
+
+  .chefs-name {
+    display: none;
+  }
+
+  .chefs-name--default {
+    display: flex;
+  }
+
+  .chefs-name--default h1 .letter {
+    transform: translateY(0%) !important;
+  }
+
+  .chefs-name h1 {
+    font-size: 3rem;
+  }
+}
+
+/*# sourceMappingURL=src_components_Chefs_Chefs_css_bad6b30c._.single.css.map*/

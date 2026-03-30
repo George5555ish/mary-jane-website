@@ -1,0 +1,101 @@
+/* [project]/src/components/StickyCards/StickyCards.css [app-client] (css) */
+@keyframes sticky-card-pulse {
+  0%, 100% {
+    box-shadow: 0 0 #e0ded11f, 0 .5rem 1.5rem #0000001f;
+  }
+
+  50% {
+    box-shadow: 0 0 1.25rem .15rem #e0ded12e, 0 .75rem 2rem #00000024;
+  }
+}
+
+.sticky-cards {
+  background-color: var(--base-500);
+  width: 100%;
+  position: relative;
+}
+
+.sticky-card {
+  text-align: center;
+  will-change: transform;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  width: 50%;
+  height: 100svh;
+  padding: 2rem;
+  display: flex;
+  position: sticky;
+  top: 0;
+}
+
+.sticky-card:nth-child(odd) {
+  margin-left: auto;
+}
+
+.sticky-card:nth-child(3n+1) {
+  background-color: var(--base-300);
+}
+
+.sticky-card:nth-child(3n+2) {
+  background-color: var(--base-400);
+}
+
+.sticky-card:nth-child(3n+3) {
+  background-color: var(--base-500);
+}
+
+.sticky-card-img {
+  aspect-ratio: 4 / 5;
+  border-radius: .35rem;
+  width: 30%;
+  margin-bottom: 1.5rem;
+  animation: 4.5s ease-in-out infinite sticky-card-pulse;
+  overflow: hidden;
+}
+
+.sticky-card:first-child .sticky-card-img {
+  animation-delay: 0s;
+}
+
+.sticky-card:nth-child(2) .sticky-card-img {
+  animation-delay: .6s;
+}
+
+.sticky-card:nth-child(3) .sticky-card-img {
+  animation-delay: 1.2s;
+}
+
+.sticky-card:nth-child(4) .sticky-card-img {
+  animation-delay: 1.8s;
+}
+
+.sticky-card:nth-child(5) .sticky-card-img {
+  animation-delay: 2.4s;
+}
+
+.sticky-card:nth-child(6) .sticky-card-img {
+  animation-delay: 3s;
+}
+
+.sticky-card h3 {
+  color: var(--base-100);
+}
+
+.sticky-card p {
+  max-width: 400px;
+}
+
+.sticky-cards-mobile .sticky-card {
+  width: 100%;
+  height: auto;
+  min-height: 100svh;
+  position: relative;
+}
+
+.sticky-cards-mobile .sticky-card:nth-child(odd) {
+  margin-left: 0;
+}
+
+/*# sourceMappingURL=src_components_StickyCards_StickyCards_css_bad6b30c._.single.css.map*/

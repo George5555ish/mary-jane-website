@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/src/components/ImageBanner/ImageBanner.css"],"sourcesContent":[".image-banner {\n  position: relative;\n  width: 100%;\n  height: 100svh;\n  overflow: hidden;\n}\n\n.image-banner-bg {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: -1;\n  width: 100%;\n  height: 100%;\n}\n\n.image-banner .container {\n  position: relative;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 100%;\n  height: 100%;\n}\n\n.image-banner .container [data-copy-wrapper] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  width: 100%;\n}\n\n.image-banner .container .image-banner-footer {\n  position: absolute;\n  bottom: 4rem;\n  left: 50%;\n  width: 35%;\n  transform: translateX(-50%);\n  text-align: center;\n}\n\n.image-banner .container .image-banner-footer p {\n  width: 100%;\n  color: var(--base-100);\n}\n\n.image-banner-footer p .line-mask {\n  width: 100%;\n}\n\n@media (max-width: 1000px) {\n  .image-banner .container .image-banner-footer {\n    width: 80%;\n  }\n}\n"],"names":[],"mappings":"AAAA;;;;;;;AAOA;;;;;;;;;AASA;;;;;;;;;AASA;;;;;;;AAOA;;;;;;;;;AASA;;;;;AAKA;;;;AAIA;EACE"}}]
+}
