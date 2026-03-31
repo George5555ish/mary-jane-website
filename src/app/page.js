@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import Preloader from "@/components/Preloader/Preloader";
+import Preloader, { isInitialLoad } from "@/components/Preloader/Preloader";
 import Copy from "@/components/Copy/Copy";
 import DiningMenu from "@/components/DiningMenu/DiningMenu";
 import IronhillShaderScroll from "@/components/IronhillShaderScroll/IronhillShaderScroll";
@@ -18,10 +18,74 @@ gsap.registerPlugin(ScrollTrigger);
 
 const ABOUT_IMAGE_COUNT = 6;
 
+function playHeroEntrance(heroEl) {
+  if (!heroEl) return;
+  const prefersReduced =
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (prefersReduced) {
+    heroEl.classList.remove("hero--portfolio--pending");
+    return;
+  }
+
+  const portrait = heroEl.querySelector(".hero--portfolio__portrait");
+  const left = heroEl.querySelector(".hero--portfolio__left");
+  const right = heroEl.querySelector(".hero--portfolio__right");
+  if (!portrait || !left || !right) {
+    heroEl.classList.remove("hero--portfolio--pending");
+    return;
+  }
+
+  gsap.set(portrait, { opacity: 0, y: 36 });
+  gsap.set(left, { opacity: 0, x: -40 });
+  gsap.set(right, { opacity: 0, x: 40 });
+
+  const ease = "sine.out";
+  const fadeDuration = 0.85;
+  /* Stagger start times by ~40–45ms so reads sequential but stays tight */
+  const staggerMs = 0.042;
+
+  const tl = gsap.timeline({
+    onComplete: () => {
+      heroEl.classList.remove("hero--portfolio--pending");
+    },
+  });
+
+  tl.to(
+    portrait,
+    { opacity: 1, y: 0, duration: fadeDuration, ease },
+    0,
+  )
+    .to(
+      left,
+      { opacity: 1, x: 0, duration: fadeDuration, ease },
+      staggerMs,
+    )
+    .to(
+      right,
+      { opacity: 1, x: 0, duration: fadeDuration, ease },
+      staggerMs * 2,
+    );
+}
+
 export default function Home() {
   const aboutSectionRef = useRef(null);
+  const heroRef = useRef(null);
+  const heroEntranceStartedRef = useRef(false);
 
-  const handlePreloaderEnter = () => {};
+  const handlePreloaderEnter = () => {
+    if (heroEntranceStartedRef.current) return;
+    heroEntranceStartedRef.current = true;
+    requestAnimationFrame(() => playHeroEntrance(heroRef.current));
+  };
+
+  useLayoutEffect(() => {
+    if (isInitialLoad) return;
+    if (heroEntranceStartedRef.current) return;
+    if (!heroRef.current) return;
+    heroEntranceStartedRef.current = true;
+    playHeroEntrance(heroRef.current);
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -63,7 +127,11 @@ export default function Home() {
     <>
       <Preloader onEnter={handlePreloaderEnter} />
 
-      <section className="hero hero--portfolio" aria-label="Introduction">
+      <section
+        className="hero hero--portfolio hero--portfolio--pending"
+        aria-label="Introduction"
+        ref={heroRef}
+      >
         <div className="hero--portfolio__bg" aria-hidden />
         <p className="hero--portfolio__greeting">Hey, there</p>
 

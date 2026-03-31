@@ -1,32 +1,50 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useLenis } from "lenis/react";
-
-import Button from "@/components/Button/Button";
 
 import "./Preloader.css";
 
 const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
 const EXIT_ANIMATION_MS = 700;
+/** Brief pause at 100% before the exit animation so the fill feels complete. */
+const AUTO_ADVANCE_DELAY_MS = 450;
 
 let isInitialLoad = true;
 
 export default function Preloader({
   title = "MARY JANE",
   duration = 2600,
-  buttonText = "View portfolio",
-  buttonHref = "#",
   onEnter,
   onAnimationComplete,
 }) {
   const lenis = useLenis();
+  const exitStartedRef = useRef(false);
+  const onEnterRef = useRef(onEnter);
+  const onAnimationCompleteRef = useRef(onAnimationComplete);
   const [isVisible, setIsVisible] = useState(isInitialLoad);
   const [isScrollLocked, setIsScrollLocked] = useState(isInitialLoad);
   const [progress, setProgress] = useState(0);
   const [hasFinishedLoading, setHasFinishedLoading] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
+
+  onEnterRef.current = onEnter;
+  onAnimationCompleteRef.current = onAnimationComplete;
+
+  const runExit = useCallback(() => {
+    if (exitStartedRef.current) return;
+    exitStartedRef.current = true;
+    if (onEnterRef.current) onEnterRef.current();
+    setIsExiting(true);
+    setIsScrollLocked(false);
+
+    window.setTimeout(() => {
+      isInitialLoad = false;
+      setIsVisible(false);
+      if (onAnimationCompleteRef.current) onAnimationCompleteRef.current();
+    }, EXIT_ANIMATION_MS);
+  }, []);
 
   /* lock/unlock scroll while preloader is active */
   useEffect(() => {
@@ -74,23 +92,18 @@ export default function Preloader({
     };
   }, [duration, isVisible]);
 
+  /* after loading completes, advance automatically (same path as former "View portfolio") */
+  useEffect(() => {
+    if (!hasFinishedLoading || !isVisible || isExiting) return;
+
+    const timeoutId = window.setTimeout(() => {
+      runExit();
+    }, AUTO_ADVANCE_DELAY_MS);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [hasFinishedLoading, isVisible, isExiting, runExit]);
+
   const loadingText = useMemo(() => `Loading... ${progress}%`, [progress]);
-
-  const handleEnterClick = (event) => {
-    if (event) event.preventDefault();
-    if (!hasFinishedLoading || isExiting) return;
-
-    if (onEnter) onEnter(event);
-
-    setIsExiting(true);
-    setIsScrollLocked(false);
-
-    window.setTimeout(() => {
-      isInitialLoad = false;
-      setIsVisible(false);
-      if (onAnimationComplete) onAnimationComplete();
-    }, EXIT_ANIMATION_MS);
-  };
 
   if (!isVisible) return null;
 
@@ -98,6 +111,7 @@ export default function Preloader({
     <section
       className={`preloader ${isExiting ? "is-exiting" : ""}`}
       aria-label="Website preloader"
+      aria-busy={!isExiting}
     >
       <div className="preloader-inner">
         <div className="preloader-title-wrap">
@@ -112,23 +126,11 @@ export default function Preloader({
 
         <div className="preloader-action-slot">
           <p
-            className={`preloader-loading ${hasFinishedLoading ? "is-hidden" : ""} mono`}
+            className={`preloader-loading ${isExiting ? "is-hidden" : ""} mono`}
             aria-live="polite"
           >
             {loadingText}
           </p>
-
-          <div
-            className={`preloader-button-wrap ${hasFinishedLoading ? "is-visible" : ""}`}
-          >
-            <Button
-              href={buttonHref}
-              onClick={handleEnterClick}
-              className="preloader-enter-button"
-            >
-              {buttonText}
-            </Button>
-          </div>
         </div>
       </div>
     </section>

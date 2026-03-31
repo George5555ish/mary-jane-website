@@ -1,3 +1,10 @@
+/* Hide hero pieces until GSAP entrance (avoids flash before animation) */
+.hero--portfolio--pending .hero--portfolio__portrait,
+.hero--portfolio--pending .hero--portfolio__left,
+.hero--portfolio--pending .hero--portfolio__right {
+  opacity: 0;
+}
+
 /* —— Hero: dark theme, site typography (Roslindale + Host Grotesk) —— */
 .hero.hero--portfolio {
   position: relative;

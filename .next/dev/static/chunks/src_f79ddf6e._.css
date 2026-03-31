@@ -428,7 +428,7 @@
   align-items: stretch;
   width: 100%;
   min-height: 125svh;
-  padding: clamp(2rem, 5vw, 4rem) clamp(2rem, 5vw, 4rem) clamp(2.5rem, 6vw, 5rem);
+  padding: clamp(5.5rem, 14vw, 11rem) clamp(2rem, 5vw, 4rem) clamp(2.5rem, 6vw, 5rem);
   display: flex;
   position: absolute;
   bottom: 0;
@@ -534,7 +534,7 @@
   color: var(--base-200);
   text-transform: none;
   margin: 0;
-  font-size: clamp(.98rem, 1.35vw, 1.08rem);
+  font-size: clamp(.18rem, 1.35vw, 1.08rem);
   font-weight: 400;
   line-height: 1.65;
 }
@@ -564,7 +564,7 @@
 
   .ironhill-scroll__content {
     align-items: stretch;
-    padding-top: 4rem;
+    padding-top: clamp(4.5rem, 12vw, 7rem);
   }
 
   .ironhill-scroll__carousel-item {
@@ -902,6 +902,10 @@
 }
 
 /* [project]/src/app/home.css [app-client] (css) */
+.hero--portfolio--pending .hero--portfolio__portrait, .hero--portfolio--pending .hero--portfolio__left, .hero--portfolio--pending .hero--portfolio__right {
+  opacity: 0;
+}
+
 .hero.hero--portfolio {
   background-color: var(--base-600);
   width: 100%;

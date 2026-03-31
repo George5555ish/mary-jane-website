@@ -1,4 +1,8 @@
 /* [project]/src/app/home.css [app-client] (css) */
+.hero--portfolio--pending .hero--portfolio__portrait, .hero--portfolio--pending .hero--portfolio__left, .hero--portfolio--pending .hero--portfolio__right {
+  opacity: 0;
+}
+
 .hero.hero--portfolio {
   background-color: var(--base-600);
   width: 100%;
