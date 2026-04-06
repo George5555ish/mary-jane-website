@@ -158,7 +158,9 @@ const Footer = () => {
             trigger=".footer-heading"
             animateOnScroll
           >
-            <p className="sm">Photography portfolio</p>
+            <p className="sm">
+              Photography Portfolio - Built by Ijeoma Mbajiaku
+            </p>
           </Copy>
         </div>
       </div>
